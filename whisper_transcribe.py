@@ -93,7 +93,7 @@ def load_whisper_model(model_size="medium", use_gpu=True):
 
 def get_audio_files(directory):
     """Поиск аудиофайлов в директории"""
-    audio_extensions = ['*.wav', '*.mp3', '*.m4a', '*.WAV', '*.MP3', '*.M4A']
+    audio_extensions = ['*.wav', '*.mp3', '*.m4a']
     files = []
     
     for ext in audio_extensions:
@@ -101,7 +101,7 @@ def get_audio_files(directory):
     
     return sorted(files)
 
-def transcribe_audio(model, file_path, device="cpu", language="ru"):
+def transcribe_audio(model, file_path, device="cpu", language="uk"):
     """Распознавание одного аудиофайла"""
     print(f"🎵 Обрабатываю: {os.path.basename(file_path)}")
     
@@ -210,8 +210,8 @@ def main():
     # Параметры (можно изменить)
     input_directory = "."  # Текущая директория
     output_directory = "transcripts"
-    model_size = "large"  # tiny, base, small, medium, large
-    language = "ru"  # Русский язык
+    model_size = "medium"  # tiny, base, small, medium, large
+    language = "uk"  # Русский язык
     
     # Получение параметров из аргументов командной строки
     if len(sys.argv) > 1:
